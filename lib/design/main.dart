@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';  // ✅ Okay, but consider using material.dart for broader UI support
+import 'app.dart';                        // ✅ Assuming app.dart contains Taskmanager widget
 
-import 'app.dart';
-
-void main()
-{
-  runApp(Taskmanager());
+void main() {
+  runApp(Taskmanager());                 // ❌ Missing `const`
 }
