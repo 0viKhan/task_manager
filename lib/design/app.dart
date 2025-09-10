@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:task_manager/screejn/sign_In.dart';
 import 'package:task_manager/screejn/splash_screen.dart';
 
 class Taskmanager extends StatelessWidget {
@@ -9,6 +10,8 @@ class Taskmanager extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       theme: ThemeData(
+
+        colorSchemeSeed: Colors.blue,
         textTheme: TextTheme(
           titleLarge:
             TextStyle(
@@ -36,11 +39,34 @@ class Taskmanager extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
-      ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              fixedSize: Size.fromWidth(double.maxFinite),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4)
+              ),
+              padding: EdgeInsets.symmetric(vertical: 12),
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white
+          ),
+
+        ),
+        textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.green
+            )
+        )
+        ),
 
 
 
-      home: SplashScreen(),
+
+
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/sign-In': (context) => SignIn(),
+      },
+
 
     );
   }
