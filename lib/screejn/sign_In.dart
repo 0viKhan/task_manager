@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
+import 'package:task_manager/screejn/SignUp_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
+  static const String  name ='SignIn';
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -141,6 +143,7 @@ class _SignInState extends State<SignIn> {
 
   }
   void _onTapSignIn(){
+    Navigator.pushReplacementNamed(context, SignUp.name);
 
     @override
     void dispose()

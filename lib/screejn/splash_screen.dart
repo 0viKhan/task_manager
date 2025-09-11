@@ -8,6 +8,7 @@ import 'package:task_manager/utills/assest_path.dart';
 
 class  SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+  static const String  name ='/';
 
   @override
   State<SplashScreen> createState() => _SplashScreen();
@@ -21,7 +22,11 @@ class _SplashScreen extends State<SplashScreen> {
   }
   Future<void>_movieTonextScreen() async{
     await Future.delayed(Duration(seconds: 4));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));
+    Navigator.pushReplacementNamed(context,
+
+   SignIn.name
+    );
+
   }
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class _SplashScreen extends State<SplashScreen> {
                 width: 200,
               ),
             ),
-h
+
 
 
           ],
