@@ -1,83 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
+import 'package:task_manager/screejn/pin_verifiaction.dart';
 
 class EmailPage extends StatefulWidget {
   const EmailPage({super.key});
-  static const String name = 'EmailPage';
+  static const String name = '/email';
 
   @override
   State<EmailPage> createState() => _EmailPageState();
 }
 
 class _EmailPageState extends State<EmailPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  // OTP controllers
-  final List<TextEditingController> _otpControllers =
-  List.generate(6, (index) => TextEditingController());
-
-  bool _isOtpStep = false;
+  final _emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     _emailController.dispose();
-    for (var c in _otpControllers) {
-      c.dispose();
-    }
     super.dispose();
   }
 
-  void _onTapSubmitEmail() {
+  void _submitEmail() {
     if (_formKey.currentState!.validate()) {
-      setState(() {
-        _isOtpStep = true;
-      });
-      // TODO: Send OTP to the email
+      // TODO: send OTP to email here
+      Navigator.pushNamed(context, PinVerification.name);
     }
-  }
-
-  void _onVerifyOtp() {
-    String otp = _otpControllers.map((c) => c.text).join();
-    if (otp.length == 6) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("OTP Verified: $otp")),
-      );
-      // TODO: Add verification API call
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Enter all 6 digits")),
-      );
-    }
-  }
-
-  Widget _buildOtpFields() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: List.generate(6, (index) {
-        return SizedBox(
-          width: 40,
-          child: TextField(
-            controller: _otpControllers[index],
-            keyboardType: TextInputType.number,
-            textAlign: TextAlign.center,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(1),
-              FilteringTextInputFormatter.digitsOnly,
-            ],
-            onChanged: (value) {
-              if (value.isNotEmpty && index < 5) {
-                FocusScope.of(context).nextFocus();
-              }
-            },
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-            ),
-          ),
-        );
-      }),
-    );
   }
 
   @override
@@ -93,52 +40,35 @@ class _EmailPageState extends State<EmailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 80),
-                  Text(
-                    _isOtpStep ? 'Enter Verification Code' : 'Your Email Address',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
+                  Text("Your Email Address",
+                      style: Theme.of(context).textTheme.headlineSmall),
                   const SizedBox(height: 8),
-                  Text(
-                    _isOtpStep
-                        ? 'We sent a 6 digit verification code to your email'
-                        : 'A 6 digit verification pin will be sent to your email address',
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 16,
-                    ),
+                  const Text(
+                    "A 6-digit verification code will be sent to your email.",
+                    style: TextStyle(color: Colors.white70, fontSize: 16),
                   ),
                   const SizedBox(height: 24),
-
-                  // Step 1: Email Input
-                  if (!_isOtpStep)
-                    TextFormField(
-                      controller: _emailController,
-                      validator: (String? value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            !value.contains('@')) {
-                          return 'Enter a valid Email';
-                        }
-                        return null;
-                      },
-                      decoration: const InputDecoration(
-                        hintText: 'Email',
-                      ),
+                  TextFormField(
+                    controller: _emailController,
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          !value.contains('@')) {
+                        return 'Enter a valid Email';
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                      hintText: 'Email',
+                      prefixIcon: Icon(Icons.email_outlined),
                     ),
-
-                  // Step 2: OTP Input
-                  if (_isOtpStep) _buildOtpFields(),
-
-                  const SizedBox(height: 24),
-
+                  ),
+                  const SizedBox(height: 32),
                   Center(
-                    child: ElevatedButton(
-                      onPressed: _isOtpStep ? _onVerifyOtp : _onTapSubmitEmail,
-                      child: Icon(
-                        _isOtpStep
-                            ? Icons.check_circle_outline
-                            : Icons.arrow_circle_right_outlined,
-                      ),
+                    child: ElevatedButton.icon(
+                      onPressed: _submitEmail,
+                      icon: const Icon(Icons.arrow_circle_right_outlined),
+                      label: const Text("Submit"),
                     ),
                   ),
                 ],
