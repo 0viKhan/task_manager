@@ -2,20 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
-  static const String  name ='SignIn';
+class EmailPage extends StatefulWidget {
+  const EmailPage({super.key});
+  static const String  name ='EmailPage';
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<EmailPage> createState() => _EmailPageState();
 }
 
-class _SignInState extends State<SignIn> {
+class _EmailPageState extends State<EmailPage> {
   final TextEditingController _emailController=TextEditingController();
-  final TextEditingController _passRController=TextEditingController();
+
   final GlobalKey<FormState> _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -30,13 +29,20 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 80,),
+
                   Text(
-                    'Get Started With',
+                    'Your Email Address',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
+
+                  Text('A 6 digit verifiaction pin will send to your email address',style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 18,
+                    letterSpacing: 0.4,
+                  ),),
                   TextFormField(
                     validator: (String? value)
 
@@ -52,39 +58,16 @@ class _SignInState extends State<SignIn> {
                     textInputAction: TextInputAction.next,
                     autovalidateMode:AutovalidateMode.always ,
                     decoration: InputDecoration(
-              
-                        hintText: 'Email',
-              
+
+                      hintText: 'Email',
+
                     ),
                   ),
                   const SizedBox(
                     height: 8,
                   ),
 
-                  TextFormField(
 
-                    controller: _passRController,
-                    obscureText: true,
-                    autovalidateMode:AutovalidateMode.onUserInteraction,
-                    decoration: InputDecoration(
-              
-                      hintText: 'password',),
-
-                    validator: (String? value)
-
-                    {
-                      if (value?.isEmpty?? true)
-                      {
-                        return 'Enter  a valid Email';
-                      }
-                      return null;
-
-                    },
-
-
-
-
-                  ),
                   const SizedBox(
                     height: 16,
                   ),
@@ -94,35 +77,34 @@ class _SignInState extends State<SignIn> {
                   const SizedBox(
                     height: 16,
                   ),
-                  TextButton(onPressed:_onTapForgot,child:  Text('Forgot Password?',style: TextStyle(
-                    color: Colors.grey
-                  ),)),
+
                   RichText(
-                    text: TextSpan(text: "Don't have any account?",
+                    text: TextSpan(text: "Have Acount?",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.4,
-              
+
                       ),
                       children: [
                         TextSpan(
-                          text: 'SignUp',
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          recognizer: TapGestureRecognizer()..onTap=_onTapSignUp
+                            text: 'SignIn',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            recognizer: TapGestureRecognizer()..onTap=_onTapSignIn
                         ),
                       ],
-              
+
                     ),
                   )
-              
+
+
                 ],
-              
-              
-              
+
+
+
               ),
             ),
           ),
@@ -133,25 +115,23 @@ class _SignInState extends State<SignIn> {
     );
 
   }
-  void _onTapSignUp(){
+  void _onTapSubmit(){
     if (_formKey.currentState!.validate())
-      {
-        //Todo signIn
-      }
+    {
+      //Todo signIn
+    }
 
   }
   void _onTapForgot(){
-    Navigator.pushNamed(context, EmailPage.name);
 
   }
   void _onTapSignIn(){
-    Navigator.pushReplacementNamed(context, SignUp.name);
+    Navigator.pushReplacementNamed(context, EmailPage.name);
 
     @override
     void dispose()
     {
       _emailController.dispose();
-      _passRController.dispose();
       super.dispose();
     }
   }

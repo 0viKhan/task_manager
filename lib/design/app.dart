@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
 
 import 'package:task_manager/screejn/sign_In.dart';
@@ -68,6 +69,7 @@ class Taskmanager extends StatelessWidget {
         SplashScreen.name: (context) => SplashScreen(),
         SignIn.name: (context) => SignIn(),
         SignUp.name: (context) => SignUp(),
+        EmailPage.name: (context) => EmailPage(),
 
 
       },

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
+import 'package:task_manager/screejn/Emal_Screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -239,17 +240,18 @@ class _SignUpState extends State<SignUp> {
 
   }
   void _onTapSignIn(){
-    Navigator.pushReplacementNamed(context, SignUp.name);
+    Navigator.pushReplacementNamed(context, EmailPage.name);
 
-    @override
-    void dispose()
-    {
-      _emailController.dispose();
-      _passRController.dispose();
-      _firstname.dispose();
-      _lastname.dispose();
-      _phone.dispose();
-      super.dispose();
-    }
+
+  }
+  @override
+  void dispose()
+  {
+    _emailController.dispose();
+    _passRController.dispose();
+    _firstname.dispose();
+    _lastname.dispose();
+    _phone.dispose();
+    super.dispose();
   }
 }
