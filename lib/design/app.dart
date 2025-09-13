@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
+import 'package:task_manager/screejn/pin_verifiaction.dart';
 
 import 'package:task_manager/screejn/sign_In.dart';
 import 'package:task_manager/screejn/splash_screen.dart';
@@ -70,6 +71,8 @@ class Taskmanager extends StatelessWidget {
         SignIn.name: (context) => SignIn(),
         SignUp.name: (context) => SignUp(),
         EmailPage.name: (context) => EmailPage(),
+        PinVerification.name: (context) => PinVerification(),
+
 
 
       },
