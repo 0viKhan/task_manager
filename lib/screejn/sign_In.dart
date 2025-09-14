@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
 import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
+import 'package:task_manager/screejn/main_nav_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -136,7 +137,7 @@ class _SignInState extends State<SignIn> {
   void _onTapSignUp(){
     if (_formKey.currentState!.validate())
       {
-        //Todo signIn
+        Navigator.pushNamedAndRemoveUntil(context, SignUp.name, (predicate)=>false);
       }
 
   }
@@ -145,7 +146,7 @@ class _SignInState extends State<SignIn> {
 
   }
   void _onTapSignIn(){
-    Navigator.pushReplacementNamed(context, SignUp.name);
+    Navigator.pushNamedAndRemoveUntil(context, MainNavScreen.name, (predicate)=>false);
 
     @override
     void dispose()

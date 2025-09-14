@@ -38,29 +38,7 @@ class _SetPasswordState extends State<SetPassword> {
                   const SizedBox(
                     height: 8,
                   ),
-                  TextFormField(
-                    validator: (String? value)
 
-                    {
-                      if (value?.isEmpty?? true)
-                      {
-                        return 'Set Password';
-                      }
-                      return null;
-
-                    },
-                    controller: _emailController,
-                    textInputAction: TextInputAction.next,
-                    autovalidateMode:AutovalidateMode.always ,
-                    decoration: InputDecoration(
-
-                      hintText: 'Email',
-
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
 
                   TextFormField(
 
@@ -92,7 +70,7 @@ class _SetPasswordState extends State<SetPassword> {
                     autovalidateMode:AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
 
-                      hintText: 'password',),
+                      hintText: 'Confirm password',),
 
                     validator: (String? value)
 
