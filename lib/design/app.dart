@@ -2,14 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
-import 'package:task_manager/screejn/main_nav_screen.dart';
 import 'package:task_manager/screejn/pin_verifiaction.dart';
-import 'package:task_manager/screejn/set_passwrd.dart';
 
 import 'package:task_manager/screejn/sign_In.dart';
 import 'package:task_manager/screejn/splash_screen.dart';
-
-
 
 class Taskmanager extends StatelessWidget {
   const Taskmanager({super.key});
@@ -71,13 +67,14 @@ class Taskmanager extends StatelessWidget {
 
 
       routes: {
-        SplashScreen.name: (context) => const SplashScreen(),
-        SignIn.name: (context) => const SignIn(),
-        SignUp.name: (context) => const SignUp(),
-        EmailPage.name: (context) => const EmailPage(),
-        PinVerification.name: (context) => const PinVerification(),
-        SetPassword.name: (context) => const SetPassword(),
-        MainNavScreen.name: (context) => const MainNavScreen(),
+        SplashScreen.name: (context) => SplashScreen(),
+        SignIn.name: (context) => SignIn(),
+        SignUp.name: (context) => SignUp(),
+        EmailPage.name: (context) => EmailPage(),
+        PinVerification.name: (context) => PinVerification(),
+
+
+
       },
 
 
