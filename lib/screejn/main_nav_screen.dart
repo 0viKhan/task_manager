@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/tm_app_bar.dart';
-import 'package:task_manager/screejn/new_task_screen.dart';
+import 'package:task_manager/screejn/new_task_list_screen.dart';
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});
@@ -13,7 +13,7 @@ class MainNavScreen extends StatefulWidget {
 
 class _MainNavScreenState extends State<MainNavScreen> {
   List<Widget> _screen = [
-    NewTaskScreen()
+    NewTaskListScreen()
   ];
   int _selectedIndex = 0;
   @override
@@ -37,7 +37,8 @@ class _MainNavScreenState extends State<MainNavScreen> {
         NavigationDestination(
             icon: Icon(Icons.arrow_circle_right_outlined), label: 'progress'),
         NavigationDestination(icon: Icon(Icons.done), label: 'completed'),
-        NavigationDestination(icon: Icon(Icons.close), label: 'completed')
+        NavigationDestination(icon: Icon(Icons.close), label: 'completed'),
+
       ]),
     );
   }
