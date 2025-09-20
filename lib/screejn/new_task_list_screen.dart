@@ -12,22 +12,42 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Task List')),
+      appBar: AppBar(title: const Text("Task List")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Expanded(
+            // Horizontal list
+            SizedBox(
+              height: 120,
               child: ListView.separated(
-                itemCount: 5, // example: 5 items
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
                 itemBuilder: (context, index) {
                   return TaskCountSummary(
-                    title: 'Progress',
-                    count: 12,
+                    title: 'Progress $index',
+                    count: 11,
                   );
                 },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: 10); // space between cards
+                separatorBuilder: (context, index) =>
+                const SizedBox(width: 10),
+              ),
+            ),
+
+            const SizedBox(height: 16),
+
+            // Vertical list
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: ListTile(
+                      title: Text("Task $index"),
+                      subtitle: const Text("Task details here"),
+                    ),
+                  );
                 },
               ),
             ),
@@ -56,6 +76,7 @@ class TaskCountSummary extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               '$count',
