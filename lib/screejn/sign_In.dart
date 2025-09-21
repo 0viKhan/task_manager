@@ -148,12 +148,13 @@ class _SignInState extends State<SignIn> {
   void _onTapSignIn(){
     Navigator.pushNamedAndRemoveUntil(context, MainNavScreen.name, (predicate)=>false);
 
-    @override
-    void dispose()
-    {
-      _emailController.dispose();
-      _passRController.dispose();
-      super.dispose();
-    }
+  }
+
+  @override
+  void dispose()
+  {
+    _emailController.dispose();
+    _passRController.dispose();
+    super.dispose();
   }
 }

@@ -26,7 +26,7 @@ class _PinVerificationState extends State<PinVerification> {
   void _verifyOtp() {
     final otp = _otpControllers.map((c) => c.text).join();
     if (otp.length == 6) {
-      // ✅ Navigate to SetPassword screen
+
       Navigator.pushNamed(
         context,
         SetPassword.name,

@@ -149,12 +149,13 @@ class _SetPasswordState extends State<SetPassword> {
   void _onTapSignIn(){
     Navigator.pushReplacementNamed(context, SignIn.name);
 
-    @override
-    void dispose()
-    {
-      _emailController.dispose();
-      _passRController.dispose();
-      super.dispose();
-    }
+  }
+
+  @override
+  void dispose()
+  {
+    _emailController.dispose();
+    _passRController.dispose();
+    super.dispose();
   }
 }
