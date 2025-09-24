@@ -14,12 +14,10 @@ class _ProcessTaskListScreenState extends State<ProcessTaskListScreen> {
       primary: false,
       shrinkWrap: true,
       itemCount: 10,
-      itemBuilder: (context,index)
-      {
-        return TaskCard)();
+      itemBuilder: (context,index) {
 
-      },
-    ()
+
+      }
 
     );
   }

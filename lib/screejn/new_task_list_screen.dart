@@ -107,7 +107,7 @@ class TaskCountSummary extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             Text(title), 
-            IconButton(onPressed: (){}, icon: Icon(Icons.tab_sharp))
+            IconButton(onPressed: (){}, icon: Icon(Icons.food_bank))
           ],
         ),
       ),
