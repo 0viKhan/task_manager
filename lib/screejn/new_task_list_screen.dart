@@ -17,7 +17,6 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // Horizontal list
             SizedBox(
               height: 200,
               child: ListView.separated(
@@ -29,52 +28,77 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
                     count: 11,
                   );
                 },
-                separatorBuilder: (context, index) =>
-                const SizedBox(width: 10),
+                separatorBuilder: (context, index) => const SizedBox(width: 10),
               ),
             ),
-
             const SizedBox(height: 16),
-
-            // Vertical list
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return Card(
                     margin: const EdgeInsets.symmetric(vertical: 6),
-                    child: ListTile(
-                      title: Text("Task $index"),
-                      tileColor: Colors.white,
-                      titleTextStyle:TextStyle(
-                      color: Colors.black,
-                        fontSize: 18,
-                      ),
-                      subtitle:Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         Text("Task details Here",),
-                         SizedBox(height: 4,),
-                         Text("time:20:30pm"),
-                         Row(
-                           children: [
-                             Chip(label: Text("New",style: TextStyle(
-                               color: Colors.blue
-                             ),))
-                           ],
-                         )
-                       ],
-
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Stack(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.task,
+                                    size: 30,
+                                    color: Colors.orange,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    "Task $index",
+                                    style: const TextStyle(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8),
+                              const Text("Task details Here"),
+                              const SizedBox(height: 4),
+                              const Text("time: 20:30pm"),
+                              const SizedBox(height: 4),
+                              const Chip(
+                                label: Text(
+                                  "New",
+                                  style: TextStyle(
+                                      color: Colors.orange, fontSize: 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            child: Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.edit,
+                                      color: Colors.blue),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.delete,
+                                      color: Colors.red),
+                                  onPressed: () {},
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
-
                 },
               ),
             ),
-
-
-
           ],
         ),
       ),
@@ -106,8 +130,8 @@ class TaskCountSummary extends StatelessWidget {
               '$count',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            Text(title), 
-            IconButton(onPressed: (){}, icon: Icon(Icons.food_bank))
+            Text(title),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.task)),
           ],
         ),
       ),
