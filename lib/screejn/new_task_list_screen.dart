@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewTaskListScreen extends StatefulWidget {
@@ -17,21 +16,26 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+
             SizedBox(
               height: 200,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (context, index) {
+                  final types = ["New", "Progress", "Completed", "Cancelled"];
                   return TaskCountSummary(
-                    title: 'Progress $index',
-                    count: 11,
+                    title: types[index],
+                    count: (index + 1) * 5,
+                    taskType: types[index],
                   );
                 },
-                separatorBuilder: (context, index) => const SizedBox(width: 10),
+                separatorBuilder: (context, index) =>
+                const SizedBox(width: 10),
               ),
             ),
             const SizedBox(height: 16),
+
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
@@ -56,7 +60,9 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
                                   Text(
                                     "Task $index",
                                     style: const TextStyle(
-                                        color: Colors.black, fontSize: 20),
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -65,12 +71,15 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
                               const SizedBox(height: 4),
                               const Text("time: 20:30pm"),
                               const SizedBox(height: 4),
-                              const Chip(
-                                label: Text(
+                              Chip(
+                                label: const Text(
                                   "New",
                                   style: TextStyle(
-                                      color: Colors.orange, fontSize: 16),
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
                                 ),
+                                backgroundColor: Colors.blue,
                               ),
                             ],
                           ),
@@ -111,10 +120,26 @@ class TaskCountSummary extends StatelessWidget {
     super.key,
     required this.title,
     required this.count,
+    required this.taskType,
   });
 
   final String title;
   final int count;
+  final String taskType;
+
+  Color _getTaskChipColour() {
+    if (taskType.toLowerCase() == 'new') {
+      return Colors.blue;
+    } else if (taskType.toLowerCase() == 'progress') {
+      return Colors.orange;
+    } else if (taskType.toLowerCase() == 'completed') {
+      return Colors.green;
+    } else if (taskType.toLowerCase() == 'cancelled') {
+      return Colors.red;
+    } else {
+      return Colors.grey;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,8 +155,14 @@ class TaskCountSummary extends StatelessWidget {
               '$count',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            Text(title),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.task)),
+            const SizedBox(height: 8),
+            Chip(
+              label: Text(
+                title,
+                style: const TextStyle(color: Colors.white),
+              ),
+              backgroundColor: _getTaskChipColour(),
+            ),
           ],
         ),
       ),

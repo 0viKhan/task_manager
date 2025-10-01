@@ -36,7 +36,7 @@ class _TMAppBarState extends State<TMAppBar> {
                     color: Colors.white
                 ),),
 
-                Text('hdj@gmail.com', style: TextStyle(
+                Text('Ovikhan753@gmail.com', style: TextStyle(
                     fontSize: 14,
                     color: Colors.black
                 ),)

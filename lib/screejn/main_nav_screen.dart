@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/tm_app_bar.dart';
+import 'package:task_manager/screejn/Cancelled_task_list.dart';
+import 'package:task_manager/screejn/completed_task_list.dart';
 import 'package:task_manager/screejn/new_task_list_screen.dart';
 import 'package:task_manager/screejn/progress_page.dart';
 
@@ -18,8 +20,8 @@ class _MainNavScreenState extends State<MainNavScreen> {
   final List<Widget> _screens = [
     const NewTaskListScreen(),
     const ProgressPage(),
-    const Center(child: Text("Completed Page")),
-    const Center(child: Text("Cancelled Page")),
+    const CompletedPage(),
+    const Cancelled_task_list_page(),
   ];
 
   void _onItemTapped(int index) {

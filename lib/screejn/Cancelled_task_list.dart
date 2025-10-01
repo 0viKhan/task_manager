@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProgressPage extends StatelessWidget {
-  const ProgressPage({super.key});
+class Cancelled_task_list_page extends StatelessWidget {
+  const Cancelled_task_list_page({super.key});
 
   @override
   Widget build(BuildContext context) {
