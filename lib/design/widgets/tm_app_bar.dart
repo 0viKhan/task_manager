@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/screejn/sign_In.dart';
+import 'package:task_manager/screejn/update_profile_screen.dart';
 
 class TMAppBar extends StatefulWidget implements PreferredSizeWidget{
   const TMAppBar({
@@ -22,29 +23,32 @@ class _TMAppBarState extends State<TMAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.green,
-      title: Row(
-        children: [
-          CircleAvatar(),
-          const SizedBox(width: 16,),
+      title: GestureDetector(
+        onTap: _onTapProfile,
+        child: Row(
+          children: [
+            CircleAvatar(),
+            const SizedBox(width: 16,),
 
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Ovi', style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white
-                ),),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Ovi', style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white
+                  ),),
 
-                Text('Ovikhan753@gmail.com', style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.black
-                ),)
-              ],
+                  Text('Ovikhan753@gmail.com', style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black
+                  ),)
+                ],
+              ),
             ),
-          ),
-          IconButton(onPressed: _onTapLogOutButton, icon: Icon(Icons.logout)),
-        ],
+            IconButton(onPressed: _onTapLogOutButton, icon: Icon(Icons.logout)),
+          ],
+        ),
       ),
     );
   }
@@ -53,4 +57,9 @@ class _TMAppBarState extends State<TMAppBar> {
     Navigator.pushNamedAndRemoveUntil(
         context, SignIn.name, (predicate) => false);
   }
+  void _onTapProfile() {
+    //if(Taskmanager.navigator.currentState!.)
+    Navigator.pushNamed(context, UpdateProfileScreen.name);
+  }
+
 }

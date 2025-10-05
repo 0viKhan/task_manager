@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/pin_verifiaction.dart';
+import 'package:task_manager/screen/pin_verifiaction.dart';
 
 class EmailPage extends StatefulWidget {
   const EmailPage({super.key});

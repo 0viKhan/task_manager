@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/screen/add_new_task.dart';
 
 class NewTaskListScreen extends StatefulWidget {
   const NewTaskListScreen({super.key});
@@ -111,7 +112,14 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: _onTapAddNewTaskButton,
+      child: Icon(Icons.add),
+
+      ),
     );
+  }
+  void _onTapAddNewTaskButton(){
+    Navigator.pushNamed(context, AddNewTask.name);
   }
 }
 
@@ -165,7 +173,10 @@ class TaskCountSummary extends StatelessWidget {
             ),
           ],
         ),
+
       ),
+
     );
   }
+
 }

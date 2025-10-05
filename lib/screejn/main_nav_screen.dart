@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/tm_app_bar.dart';
-import 'package:task_manager/screejn/Cancelled_task_list.dart';
-import 'package:task_manager/screejn/completed_task_list.dart';
-import 'package:task_manager/screejn/new_task_list_screen.dart';
-import 'package:task_manager/screejn/progress_page.dart';
+import 'package:task_manager/screen/Cancelled_task_list.dart';
+import 'package:task_manager/screen/completed_task_list.dart';
+import 'package:task_manager/screen/new_task_list_screen.dart';
+import 'package:task_manager/screen/progress_page.dart';
+import 'package:task_manager/screen/Cancelled_task_list.dart';
+import 'package:task_manager/screen/completed_task_list.dart' show CompletedPage;
+import 'package:task_manager/screen/new_task_list_screen.dart';
+import 'package:task_manager/screen/progress_page.dart' show ProgressPage;
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});

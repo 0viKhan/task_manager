@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/sign_In.dart';
+import 'package:task_manager/screen/sign_In.dart';
 import 'package:task_manager/utills/assest_path.dart';
 
 

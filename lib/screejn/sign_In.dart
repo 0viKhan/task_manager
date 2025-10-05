@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/Emal_Screen.dart';
-import 'package:task_manager/screejn/SignUp_screen.dart';
-import 'package:task_manager/screejn/main_nav_screen.dart';
+import 'package:task_manager/screen/Emal_Screen.dart';
+import 'package:task_manager/screen/SignUp_screen.dart';
+import 'package:task_manager/screen/main_nav_screen.dart';
+import 'package:task_manager/screen/Emal_Screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -134,13 +135,10 @@ class _SignInState extends State<SignIn> {
     );
 
   }
-  void _onTapSignUp(){
-    if (_formKey.currentState!.validate())
-      {
-        Navigator.pushNamedAndRemoveUntil(context, SignUp.name, (predicate)=>false);
-      }
-
+  void _onTapSignUp() {
+    Navigator.pushNamedAndRemoveUntil(context, SignUp.name, (route) => false);
   }
+
   void _onTapForgot(){
     Navigator.pushNamed(context, EmailPage.name);
 

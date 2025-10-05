@@ -2,18 +2,23 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/screejn/Emal_Screen.dart';
 import 'package:task_manager/screejn/SignUp_screen.dart';
+import 'package:task_manager/screejn/add_new_task.dart';
 import 'package:task_manager/screejn/main_nav_screen.dart';
 import 'package:task_manager/screejn/pin_verifiaction.dart';
+import 'package:task_manager/screejn/set_passwrd.dart';
 
 import 'package:task_manager/screejn/sign_In.dart';
 import 'package:task_manager/screejn/splash_screen.dart';
+import 'package:task_manager/screejn/update_profile_screen.dart';
 
 class Taskmanager extends StatelessWidget {
   const Taskmanager({super.key});
+  static GlobalKey<NavigatorState>navigator=GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      navigatorKey: navigator,
       theme: ThemeData(
 
         colorSchemeSeed: Colors.blue,
@@ -74,6 +79,11 @@ class Taskmanager extends StatelessWidget {
         EmailPage.name: (context) => EmailPage(),
         PinVerification.name: (context) => PinVerification(),
         MainNavScreen.name: (context) => MainNavScreen(),
+        AddNewTask.name:(context)=>AddNewTask(),
+        UpdateProfileScreen.name:(context)=>UpdateProfileScreen(),
+        SetPassword.name:(context)=>SetPassword()
+
+
 
 
 

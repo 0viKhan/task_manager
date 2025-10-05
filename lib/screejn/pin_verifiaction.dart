@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/set_passwrd.dart';
+import 'package:task_manager/screen/set_passwrd.dart';
 
 class PinVerification extends StatefulWidget {
   const PinVerification({super.key});

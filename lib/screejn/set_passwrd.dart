@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/design/widgets/screen_background.dart';
-import 'package:task_manager/screejn/Emal_Screen.dart';
-import 'package:task_manager/screejn/SignUp_screen.dart';
-import 'package:task_manager/screejn/sign_In.dart';
+import 'package:task_manager/screen/Emal_Screen.dart';
+import 'package:task_manager/screen/SignUp_screen.dart';
+import 'package:task_manager/screen/sign_In.dart';
 
 class SetPassword extends StatefulWidget {
   const SetPassword({super.key});
