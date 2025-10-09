@@ -2,5 +2,5 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 void showSnackbarMessage(BuildContext context,String message)
 {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('message')));
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registration Done')));
 }
