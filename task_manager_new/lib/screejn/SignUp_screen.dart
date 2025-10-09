@@ -199,6 +199,7 @@ class _SignUpState extends State<SignUp> {
     });
 
     if (response.isSuccess) {
+      _clearTextField();
       showSnackbarMessage(context, 'Registration successful! Please login.');
     } else {
       showSnackbarMessage(
@@ -212,6 +213,15 @@ class _SignUpState extends State<SignUp> {
 
   void _onTapSignIn() {
     Navigator.pushNamedAndRemoveUntil(context, SignIn.name, (predicate) => false);
+  }
+  void _clearTextField() {
+    setState(() {
+      _firstname.clear();
+      _lastname.clear();
+      _emailController.clear();
+      _passRController.clear();
+      _phone.clear();
+    });
   }
 
   @override
